@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cfd-mesh-tools"
+version = "0.1.0"
+description = "Shared CFD mesh/solution readers, Numba WLS gradient/Hessian kernels, linear algebra, and FEM quadrature rules."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.24",
+    "numba>=0.58",
+    "scipy>=1.10",
+]
+
+[project.optional-dependencies]
+cgns = ["h5py>=3.8"]
+vtu = ["vtk>=9.0"]
+csv = ["polars>=0.20"]
+readers = ["h5py>=3.8", "vtk>=9.0", "polars>=0.20"]
+dev = ["pytest>=7.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
